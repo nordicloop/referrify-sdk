@@ -8,8 +8,7 @@
     "/lib"
   ],
   "scripts": {
-    "dev": "npx tsc && node lib/index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "prepare": "npx tsc"
   },
   "keywords": [],
   "author": "",
