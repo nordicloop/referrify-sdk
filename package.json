@@ -11,7 +11,8 @@
     "index.js"
   ],
   "scripts": {
-    "prepare": "npx tsc"
+    "build": "tsc",
+    "prepare": "npm run build"
   },
   "keywords": [],
   "author": "",
