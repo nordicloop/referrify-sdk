@@ -1,16 +1,10 @@
-import { getLeadFromUrl } from "./helper"
-import { markConversion as markConversionApi } from "./referrify-core";
-import { getExecutionEnvironment } from "./util"
+import axios from 'axios'
 
-export function markConversion(originalUrl?: string): Promise<boolean> {
-  const env = getExecutionEnvironment()
-  if (!originalUrl) {
-    if (env === "browser") {
-      originalUrl = window.location.href
-    } else {
-      throw new Error("no url provided")
-    }
-  }
-  const leadId = getLeadFromUrl(originalUrl)
-  return markConversionApi(leadId)
+const host = 'https://tinny.me'
+
+export function markConversion(leadId: string): Promise<boolean> {
+  const url = host + `/conversion?ld=${leadId}`
+  return axios.post(url)
+    .then(res => res.data?.success === true)
+    .catch(e => false)
 }
