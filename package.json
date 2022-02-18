@@ -5,7 +5,10 @@
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
   "files": [
-    "/lib"
+    "lib",
+    "src",
+    "index.ts",
+    "index.js"
   ],
   "scripts": {
     "prepare": "npx tsc"
